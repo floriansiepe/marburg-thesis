@@ -17,3 +17,10 @@ jobs:
         with:
           root_file: thesis.tex
           args:
+      - name: Gather build artifacts
+        run: mkdir build && cp -r *.pdf docs/* build/
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: thesis
+          path: build/
