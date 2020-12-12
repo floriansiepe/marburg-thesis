@@ -1,8 +1,8 @@
-on:
 name: Build with latexmk and publish to release page
+on:
   push:
     tags:
-      - v*.Final
+      - v*
 jobs:
   build_latex:
     runs-on: ubuntu-latest
@@ -19,11 +19,11 @@ jobs:
           args:
       - name: Gather build artifacts
         run: mkdir build && cp -r *.pdf docs/* build/
-      - name: Publish to release page
+      - name: Publish prerelease to release page
         uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "${{ steps.get_version.outputs.VERSION }}"
+          automatic_release_tag: "$${{ steps.get_version.outputs.VERSION }}"
           prerelease: false
           title: "${{ steps.get_version.outputs.VERSION }}"
           files: |
