@@ -1,33 +1,41 @@
-[![Build Status](https://travis-ci.org/mbredel/thesis-template.svg?branch=master)](https://travis-ci.org/mbredel/thesis-template)
+![Build Status](https://github.com/floriansiepe/marburg-thesis/workflows/Build%20with%20lualatex/badge.svg)
 
-# A thesis LaTeX-template
+# Disclaimer
 
-This LaTeX-template might be used to write a bachelor or master thesis at the Computer Science department at [h_da University of Applied Sciences](https://www.fbi.h-da.de/fbi.html "Hochschule Darmstadt, University of Applied Sciences") in Darmstadt. It is based on the fabulous ClassicThesis style template of [Andre Miedé](http://www.miede.de/ "Prof. Dr. Andre Miedé"). It is adapted to meet the current style guide for bachelor and master theses at the Computer Science department of h_da, as outlined in [Richtlinien zur Anfertigung der Bachelorarbeit](https://www.fbi.h-da.de/fileadmin/Inhalt/dokumente/Bachelor/BachelorProjekt/Richtlinien_Bachelorarbeit_070619.pdf)
+This is any unoffical thesis template for the [Philipps University of Marburg](https://www.uni-marburg.de/ "Philipps Universität Marburg"). The author is not related in any form to the university and no guarrantee can be given, that the here implemented specifications meet a certain guide line, that might be valid for your department. **Before using it, make sure your department is agrees with this template**.
+
+---
+
+# marburg-thesis
+
+This LaTeX-template might be used to write a bachelor or master thesis at the Computer Science department at [Philipps University of Marburg](https://www.uni-marburg.de/ "Philipps Universität Marburg"). All the credits of this awesome work belong to [Andre Miedé](http://www.miede.de/ "Prof. Dr. Andre Miedé") (see [repo](https://bitbucket.org/amiede/classicthesis/wiki/Home)) and [Michael Bredel](http://www.bredel.at). However, mostly colors and logos have been changed to meet the Marburg style guide.
+
+The documentation below is taken from the [Michael Bredel's thesis template repository](https://github.com/mbredel/thesis-template). Only links have been adapted and the chapter for Github Actions has been added.
 
 ## Table of contents
 
 * [Configuration](#configuration)
-  * [thesis.tex](#thesistex "Configuration options in the thesis.tex file")
-    * [Two-sided vs. one-sided](#two-sided-vs-one-sided)
-    * [Bibliographies](#bibliographies "How to add additional bibligraphy files")
-    * [Language](#language "How to change the language of the document")
-    * [Table of content, figures, tables, listings, and acronyms](#table-of-content-figures-tables-listings-and-acronyms)
-  * [hdathesis-config.tex](#hdathesis-configtex)
-    * [Personal data](#personal-data "How to edit the personal data of the thesis")
-    * [Umlauts](#umlauts "How to use umlauts in the personal data/on the tile page of the thesis")
-  * [classicthesis-config.tex](#classicthesis-configtex)
+* [thesis.tex](#thesistex "Configuration options in the thesis.tex file")
+* [Two-sided vs. one-sided](#two-sided-vs-one-sided)
+* [Bibliographies](#bibliographies "How to add additional bibligraphy files")
+* [Language](#language "How to change the language of the document")
+* [Table of content, figures, tables, listings, and acronyms](#table-of-content-figures-tables-listings-and-acronyms)
+* [hdathesis-config.tex](#hdathesis-configtex)
+* [Personal data](#personal-data "How to edit the personal data of the thesis")
+* [Umlauts](#umlauts "How to use umlauts in the personal data/on the tile page of the thesis")
+* [classicthesis-config.tex](#classicthesis-configtex)
 * [Usage](#usage)
-  * [Writing abstracts](#writing-abstracts "Adding abstracts to the thesis")
-  * [Adding content](#adding-content "Adding chapters to the thesis")
-  * [Changing the Citation Style](#changing-the-citation-style "Changing the citation style from IEEE Numeric to IEEE Alphabetic")
-  * [Compiling the LaTeX source code](#compiling-the-latex-source-code)
-  * [Using Docker](#using-docker "Using Docker for compiling the LaTeX code")
+* [Writing abstracts](#writing-abstracts "Adding abstracts to the thesis")
+* [Adding content](#adding-content "Adding chapters to the thesis")
+* [Changing the Citation Style](#changing-the-citation-style "Changing the citation style from IEEE Numeric to IEEE Alphabetic")
+* [Compiling the LaTeX source code](#compiling-the-latex-source-code)
+* [Using Docker](#using-docker "Using Docker for compiling the LaTeX code")
 * [Known issues](#known-issues)
 * [License](#license)
 
 ## Configuration
 
-The LaTeX template can be modified and configured easily using a very limited number of files, namely _classicthesis-config.tex_, _hdathesis-config.tex_, and _thesis.tex_. Only use these three files to modify your LaTeX thesis. Please _DO NOT_ modify the actual LaTeX code for your thesis (as this becomes quite complex and consumes a lot of time). 
+The LaTeX template can be modified and configured easily using a very limited number of files, namely _classicthesis-config.tex_, _hdathesis-config.tex_, and _thesis.tex_. Only use these three files to modify your LaTeX thesis. Please _DO NOT_ modify the actual LaTeX code for your thesis (as this becomes quite complex and consumes a lot of time).
 Please finde a brief description of the various configuration options below:
 
 ### thesis.tex
@@ -40,11 +48,11 @@ The default output of the LaTeX thesis template is a single-sided style that als
 
 ```
 \documentclass[ openright,titlepage,numbers=noenddot,headinclude,twoside,%
-                footinclude=true,cleardoublepage=empty,abstractoff,%
-                BCOR=5mm,paper=a4,fontsize=11pt,%
-                ngerman,american,%
-                ]{scrreprt}
-``` 
+footinclude=true,cleardoublepage=empty,abstractoff,%
+BCOR=5mm,paper=a4,fontsize=11pt,%
+ngerman,american,%
+]{scrreprt}
+```
 
 You may also adapt the paper size (_paper=a4_) and the font size (_fontsize=11_) if necessary.
 
@@ -93,14 +101,14 @@ This is where you have to place all the personal stuff of your thesis, starting 
 \newcommand{\myTitle}{A Classic Thesis Style\xspace}
 \newcommand{\mySubtitle}{An Homage to The Elements of Typographic Style\xspace}
 \newcommand{\myDegree}{Bachelor of Science (B.Sc)\xspace}
-\newcommand{\myName}{Andr\'e Miede\xspace}
+\newcommand{\myName}{Your Name\xspace}
 \newcommand{\myId}{Matrikelnummer\xspace}
-\newcommand{\myProf}{Prof. Dr.-Ing. Michael Bredel\xspace}
-\newcommand{\myOtherProf}{Prof. Dr. Martin Stiemerling\xspace}
-\newcommand{\myFaculty}{Fachbereich Informatik\xspace}
-\newcommand{\myUni}{Hochschule Darmstadt\xspace}
-\newcommand{\myLocation}{Darmstadt\xspace}
-\newcommand{\myTime}{20. Feburar 2015\xspace}
+\newcommand{\myProf}{Prof. Dr.-Ing. XY\xspace}
+\newcommand{\myOtherProf}{Prof. Dr. YX\xspace}
+\newcommand{\myFaculty}{Fachbereich Mathematik \& Informatik\xspace}
+\newcommand{\myUni}{Phillipps Universität Marburg\xspace}
+\newcommand{\myLocation}{Marburg\xspace}
+\newcommand{\myTime}{20. Dezember 2020\xspace}
 \newcommand{\myVersion}{version 4.4\xspace}
 ```
 
@@ -161,13 +169,13 @@ You may also want to have a look at the _part(...)_ section at line 93 and 103. 
 
 ### Changing the Citation Style
 
-By default, this template uses the IEEE Numeric style for citations. The IEEE citation style includes in-text citations, numbered in square brackets, which refer to the full citation listed in the reference list at the end of the paper. The reference list is organized numerically, not alphabetically. For examples, see the [IEEE Editorial Style Manual](http://ieeeauthorcenter.ieee.org/wp-content/uploads/IEEE_Style_Manual.pdf). 
+By default, this template uses the IEEE Numeric style for citations. The IEEE citation style includes in-text citations, numbered in square brackets, which refer to the full citation listed in the reference list at the end of the paper. The reference list is organized numerically, not alphabetically. For examples, see the [IEEE Editorial Style Manual](http://ieeeauthorcenter.ieee.org/wp-content/uploads/IEEE_Style_Manual.pdf).
 
 However, if you prefer to uses the IEEE Alphabetic style for citations, as suggested in the [Richtlinien zur Anfertigung der Bachelorarbeit](https://www.fbi.h-da.de/fileadmin/Inhalt/dokumente/Bachelor/BachelorProjekt/Richtlinien_Bachelorarbeit_070619.pdf) you can do so. To this end, you have to change lines 90 and 91 of _classicthesis-config.tex_:
 
 ```
- %style=numeric-comp,%
- style=alphabetic,%
+%style=numeric-comp,%
+style=alphabetic,%
 ```
 
 
@@ -176,51 +184,60 @@ However, if you prefer to uses the IEEE Alphabetic style for citations, as sugge
 You may compile the hda-thesis template using the ```pdflatex``` and the ```bibtex``` command. In addition, the thesis template repository contains a Makefile that allows you to compile the thesis template using the _make_ tool available on most Unix and Linux systems. Simply type:
 
 ```
- $ make
+$ make
 ```
 
 to compile the LaTeX code into a PDF-file. Moreover, you may use
 
 ```
- $ make clean
+$ make clean
 ```
 
 to remove all temporary files, which are produced during the compilation process. Finally,
 
 ```
- $ make bz2
+$ make bz2
 ```
 
 generates a bz2-package file, which contains all the source files of your LaTeX code. In case you need to create a PDF-version with embedded fonts you may use
 
 ```
- $ make publish
+$ make publish
 ```
 
 ### Using Docker
 
-The h_da thesis template ships with two Dockerfiles that create [Docker](https://www.docker.com) container used to compile the LaTeX code. One container - build by the [Dockerfile.travis]( https://github.com/mbredel/thesis-template/blob/master/Dockerfile.travis) Docker file - is used by the Travis-CI infrastructure to compile the thesis template and check its integrity at every commit. The other one - created by the [Dockerfile.local](https://github.com/mbredel/thesis-template/blob/master/Dockerfile.local) Docker file - might be used to build the Docker container that allows to compile the LaTeX code on your local machine without the need to install any LaTeX files.
+The h_da thesis template ships with two Dockerfiles that create [Docker](https://www.docker.com) container used to compile the LaTeX code. One container - build by the [Dockerfile.travis]( https://github.com/mbredel/floriansiepe/blob/master/Dockerfile.travis) Docker file - is used by the Travis-CI infrastructure to compile the thesis template and check its integrity at every commit. The other one - created by the [Dockerfile.local](https://github.com/floriansiepe/thesis-template/blob/master/Dockerfile.local) Docker file - might be used to build the Docker container that allows to compile the LaTeX code on your local machine without the need to install any LaTeX files.
 
 On order to build the Docker image you have to type the following command:
 
 ```
- $ docker build --tag mbredel/thesis-template --file Dockerfile.local .
+$ docker build --tag marburg-thesis --file Dockerfile.local .
 ```
 
 Creating the image requires a working (and hopefully fast) Internet connection. It may take several minutes to download the required base-images as well as all needed dependencies. You only have to create the image once. When the image is build, you can run the Docker container by executing the following commad
 
 ```
- $ docker run --volume $(pwd):/thesis-template/ mbredel/thesis-template && docker rm $(docker ps -lq)
- ```
+$ docker run --volume $(pwd):/marburg-thesis/ marburg-thesis && docker rm $(docker ps -lq)
+```
 
 inside the root directory containing the LaTeX code. The command mounts the current directory into the Docker container, runs the "publish" make target, and thus compiles the LaTeX code into a PDF file. Finally, the command removes the container again, as it is not needed anymore. You may re-compile the LaTeX code by re-running the "docker run ..." command again.
 
 For more information on Docker, please take a look at the [Docker documentation](https://docs.docker.com/).
 
+## Using Github Actions
+
+This thesis ships with multiple [Github Action workflows](https://github.com/floriansiepe/marburg-thesis/blob/master/.github/workflows) to build the thesis directly on Github. The following workflows are included:
+
+- [pdflatex](https://github.com/floriansiepe/marburg-thesis/blob/master/.github/workflows/build-with-pdflatex.yml): Builds the thesis with pdflatex on any push/pull request on any branch except master
+- [lualatex](https://github.com/floriansiepe/marburg-thesis/blob/master/.github/workflows/build-with-lualatex.yml): Builds the thesis with lualatex on any push/pull request on any branch except master
+- [latexmk](https://github.com/floriansiepe/marburg-thesis/blob/master/.github/workflows/build-with-latexmk.yml): Builds the thesis with latexmk on any push/pull request on any branch except master
+- [Prerelease with latexmk](https://github.com/floriansiepe/marburg-thesis/blob/master/.github/workflows/build-and-publish-prerelease-with-latexmk.yml): Builds the thesis with latexmk on any `v*` (except `v*.Final`) tagged commit on the master branch and publishes the pdf as a prerelease on the Github release page
+- [Prerelease with latexmk](https://github.com/floriansiepe/marburg-thesis/blob/master/.github/workflows/build-and-publish-prerelease-with-latexmk.yml): Builds the thesis with latexmk on any `v*.Final` tagged commit on the master branch and publishes the pdf on the Github release page
 ## Known issues
 
 * The LaTeX template is tested using [TeXLive](https://www.tug.org/texlive/) which is available for Linux and Windows.
-  * It has not been tested for [MiKTeX](https://miktex.org/) and [MacTeX](https://www.tug.org/mactex/) yet. Any input on these LaTeX distributions is very welcome.
+* It has not been tested for [MiKTeX](https://miktex.org/) and [MacTeX](https://www.tug.org/mactex/) yet. Any input on these LaTeX distributions is very welcome.
 * The LaTeX template only supports bachelor theses (by default)
 * The thesis only supports German and (American) English
 
@@ -230,4 +247,4 @@ The h_da computer science department LaTeX thesis template is licenced under GPL
 
 ## Acknowledgements
 
-* Many thanks to Sebastian Jung for his hints on the local Docker approach for compiling the LaTeX code. 
+* Many thanks to Sebastian Jung for his hints on the local Docker approach for compiling the LaTeX code.

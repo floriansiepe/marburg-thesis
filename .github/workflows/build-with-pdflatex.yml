@@ -1,0 +1,26 @@
+name: Build with pdflatex
+on:
+  push:
+    branches-ignore:
+      - master
+  pull_request:
+    branches-ignore:
+      - master
+jobs:
+  build_latex:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v1
+      - name: Compile thesis.tex
+        uses: dante-ev/latex-action@master
+        with:
+          root_file: thesis.tex
+          compiler: pdflatex
+          args:
+      - name: biber thesis
+        uses: dante-ev/latex-action@master
+        with:
+          root_file: thesis
+          compiler: biber
+          args:

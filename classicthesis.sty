@@ -148,6 +148,7 @@
 \definecolor{halfgray}{gray}{0.55} % chapter numbers will be semi transparent .5 .55 .6 .0
 \definecolor{webgreen}{rgb}{0,.5,0}
 \definecolor{webbrown}{rgb}{.6,0,0}
+\definecolor{marburgBlue}{HTML}{23396e}
 %\definecolor{Maroon}{cmyk}{0, 0.87, 0.68, 0.32}
 %\definecolor{RoyalBlue}{cmyk}{1, 0.50, 0, 0}
 %\definecolor{Black}{cmyk}{0, 0, 0, 0}
@@ -408,17 +409,17 @@
     \titleformat{\part}[display]
     {\normalfont\centering\large}%
     {\thispagestyle{empty}\partname~\MakeTextUppercase{\thepart}}{1em}%
-    {\color{Maroon}\spacedallcaps}[\bigskip\normalfont\normalsize\color{Black}\begin{quote}\ctparttext@print\end{quote}]
+    {\color{marburgBlue}\spacedallcaps}[\bigskip\normalfont\normalsize\color{Black}\begin{quote}\ctparttext@print\end{quote}]
 }{\relax}
 % chapters
 \ifthenelse{\boolean{ct@linedheaders}}%
 {% lines above and below, number right
     \titleformat{\chapter}[display]%
-    {\relax}{\raggedleft{\color{halfgray}\chapterNumber\thechapter} \\ }{0pt}%
+    {\relax}{\raggedleft{\color{marburgBlue}\chapterNumber\thechapter} \\ }{0pt}%
     {\titlerule\vspace*{.9\baselineskip}\raggedright\spacedallcaps}[\normalsize\vspace*{.8\baselineskip}\titlerule]%
 }{% something like Bringhurst
     \titleformat{\chapter}[display]%
-    {\relax}{\mbox{}\oldmarginpar{\vspace*{-3\baselineskip}\color{halfgray}\chapterNumber\thechapter}}{0pt}%
+    {\relax}{\mbox{}\oldmarginpar{\vspace*{-3\baselineskip}\color{marburgBlue}\chapterNumber\thechapter}}{0pt}%
     {\raggedright\spacedallcaps}[\normalsize\vspace*{.8\baselineskip}\titlerule]%
 }
 % sections \FloatBarrier
@@ -479,7 +480,7 @@
     \renewcommand{\cftpartaftersnum}{}%
     \renewcommand{\cftpartaftersnumb}{\spacedlowsmallcaps}%
     \setlength{\cftpartnumwidth}{\cftchapnumwidth}
-    \renewcommand{\cftpartfont}{\color{Maroon}\normalfont}%
+    \renewcommand{\cftpartfont}{\color{marburgBlue}\normalfont}%
     \cftpagenumbersoff{part}
     \renewcommand{\cftpartpagefont}{\normalfont}%
     \ifthenelse{\boolean{ct@dottedtoc}}{\relax}%
