@@ -1,8 +1,8 @@
-![Build Status](https://github.com/floriansiepe/marburg-thesis/workflows/Build%20with%20lualatex/badge.svg)
+![Build Status](https://github.com/floriansiepe/marburg-thesis/workflows/Build%20with%20latexmk/badge.svg)
 
 # Disclaimer
 
-This is any unoffical thesis template for the [Philipps University of Marburg](https://www.uni-marburg.de/ "Philipps Universität Marburg"). The author is not related in any form to the university and no guarrantee can be given, that the here implemented specifications meet a certain guide line, that might be valid for your department. **Before using it, make sure your department is agrees with this template**.
+This is any unoffical thesis template for the [Philipps University of Marburg](https://www.uni-marburg.de/ "Philipps Universität Marburg"). The author is not related in any form to the university and no guarrantee can be given, that the here implemented specifications meet a certain guide line, that might be valid for your department. **Before using it, make sure your department agrees with this template**.
 
 ---
 
@@ -15,21 +15,21 @@ The documentation below is taken from the [Michael Bredel's thesis template repo
 ## Table of contents
 
 * [Configuration](#configuration)
-* [thesis.tex](#thesistex "Configuration options in the thesis.tex file")
-* [Two-sided vs. one-sided](#two-sided-vs-one-sided)
-* [Bibliographies](#bibliographies "How to add additional bibligraphy files")
-* [Language](#language "How to change the language of the document")
-* [Table of content, figures, tables, listings, and acronyms](#table-of-content-figures-tables-listings-and-acronyms)
-* [hdathesis-config.tex](#hdathesis-configtex)
-* [Personal data](#personal-data "How to edit the personal data of the thesis")
-* [Umlauts](#umlauts "How to use umlauts in the personal data/on the tile page of the thesis")
-* [classicthesis-config.tex](#classicthesis-configtex)
+  * [thesis.tex](#thesistex "Configuration options in the thesis.tex file")
+    * [Two-sided vs. one-sided](#two-sided-vs-one-sided)
+    * [Bibliographies](#bibliographies "How to add additional bibligraphy files")
+    * [Language](#language "How to change the language of the document")
+    * [Table of content, figures, tables, listings, and acronyms](#table-of-content-figures-tables-listings-and-acronyms)
+  * [hdathesis-config.tex](#hdathesis-configtex)
+    * [Personal data](#personal-data "How to edit the personal data of the thesis")
+    * [Umlauts](#umlauts "How to use umlauts in the personal data/on the tile page of the thesis")
+  * [classicthesis-config.tex](#classicthesis-configtex)
 * [Usage](#usage)
-* [Writing abstracts](#writing-abstracts "Adding abstracts to the thesis")
-* [Adding content](#adding-content "Adding chapters to the thesis")
-* [Changing the Citation Style](#changing-the-citation-style "Changing the citation style from IEEE Numeric to IEEE Alphabetic")
-* [Compiling the LaTeX source code](#compiling-the-latex-source-code)
-* [Using Docker](#using-docker "Using Docker for compiling the LaTeX code")
+  * [Writing abstracts](#writing-abstracts "Adding abstracts to the thesis")
+  * [Adding content](#adding-content "Adding chapters to the thesis")
+  * [Changing the Citation Style](#changing-the-citation-style "Changing the citation style from IEEE Numeric to IEEE Alphabetic")
+  * [Compiling the LaTeX source code](#compiling-the-latex-source-code)
+  * [Using Docker](#using-docker "Using Docker for compiling the LaTeX code")
 * [Known issues](#known-issues)
 * [License](#license)
 
