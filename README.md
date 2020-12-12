@@ -1,4 +1,4 @@
-![Build Status](https://github.com/floriansiepe/marburg-thesis/workflows/Build%20with%20latexmk/badge.svg)
+![Build Status](https://github.com/floriansiepe/marburg-thesis/workflows/.github/workflows/build-and-publish-with-latexmk.yml/badge.svg)
 
 # Disclaimer
 
