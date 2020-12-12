@@ -225,15 +225,15 @@ inside the root directory containing the LaTeX code. The command mounts the curr
 
 For more information on Docker, please take a look at the [Docker documentation](https://docs.docker.com/).
 
-## Using Github Actions
+### Using Github Actions
 
 This thesis ships with multiple [Github Action workflows](https://github.com/floriansiepe/marburg-thesis/blob/master/.github/workflows) to build the thesis directly on Github. The following workflows are included:
 
-- [pdflatex](https://github.com/floriansiepe/marburg-thesis/blob/master/.github/workflows/build-with-pdflatex.yml): Builds the thesis with pdflatex on any push/pull request on any branch except master
-- [lualatex](https://github.com/floriansiepe/marburg-thesis/blob/master/.github/workflows/build-with-lualatex.yml): Builds the thesis with lualatex on any push/pull request on any branch except master
 - [latexmk](https://github.com/floriansiepe/marburg-thesis/blob/master/.github/workflows/build-with-latexmk.yml): Builds the thesis with latexmk on any push/pull request on any branch except master
 - [Prerelease with latexmk](https://github.com/floriansiepe/marburg-thesis/blob/master/.github/workflows/build-and-publish-prerelease-with-latexmk.yml): Builds the thesis with latexmk on any `v*` (except `v*.Final`) tagged commit on the master branch and publishes the pdf as a prerelease on the Github release page
 - [Prerelease with latexmk](https://github.com/floriansiepe/marburg-thesis/blob/master/.github/workflows/build-and-publish-prerelease-with-latexmk.yml): Builds the thesis with latexmk on any `v*.Final` tagged commit on the master branch and publishes the pdf on the Github release page
+
+To configure `latexmk` see [.latexmkrc]((https://github.com/floriansiepe/marburg-thesis/blob/master/latexmkrc).
 ## Known issues
 
 * The LaTeX template is tested using [TeXLive](https://www.tug.org/texlive/) which is available for Linux and Windows.
