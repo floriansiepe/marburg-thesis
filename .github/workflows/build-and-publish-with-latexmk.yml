@@ -1,0 +1,27 @@
+name: Build with lualatex and publish to release page
+on:
+  push:
+    tags:
+      - v*.Final
+jobs:
+  build_latex:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v1
+      - name: Compile thesis.tex
+        uses: dante-ev/latex-action@master
+        with:
+          root_file: thesis.tex
+          args:
+      - name: Gather build artifacts
+        run: mkdir build && cp -r *.pdf docs/* build/
+      - name: Publish to release page
+        uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "${GITHUB_REF##*/}"
+          prerelease: false
+          title: "${GITHUB_REF##*/}"
+          files: |
+            build/*
