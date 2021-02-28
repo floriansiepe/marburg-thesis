@@ -1,4 +1,4 @@
-![Build Status](https://github.com/floriansiepe/marburg-thesis/workflows/.github/workflows/build-and-publish-with-latexmk.yml/badge.svg)
+[![Build Status](https://github.com/floriansiepe/marburg-thesis/workflows/template/badge.svg)](https://github.com/floriansiepe/marburg-thesis/actions)
 
 # Disclaimer
 
@@ -14,24 +14,29 @@ The documentation below is taken from the [Michael Bredel's thesis template repo
 
 ## Table of contents
 
-* [Configuration](#configuration)
-  * [thesis.tex](#thesistex "Configuration options in the thesis.tex file")
-    * [Two-sided vs. one-sided](#two-sided-vs-one-sided)
-    * [Bibliographies](#bibliographies "How to add additional bibligraphy files")
-    * [Language](#language "How to change the language of the document")
-    * [Table of content, figures, tables, listings, and acronyms](#table-of-content-figures-tables-listings-and-acronyms)
-  * [hdathesis-config.tex](#hdathesis-configtex)
-    * [Personal data](#personal-data "How to edit the personal data of the thesis")
-    * [Umlauts](#umlauts "How to use umlauts in the personal data/on the tile page of the thesis")
-  * [classicthesis-config.tex](#classicthesis-configtex)
-* [Usage](#usage)
-  * [Writing abstracts](#writing-abstracts "Adding abstracts to the thesis")
-  * [Adding content](#adding-content "Adding chapters to the thesis")
-  * [Changing the Citation Style](#changing-the-citation-style "Changing the citation style from IEEE Numeric to IEEE Alphabetic")
-  * [Compiling the LaTeX source code](#compiling-the-latex-source-code)
-  * [Using Docker](#using-docker "Using Docker for compiling the LaTeX code")
-* [Known issues](#known-issues)
-* [License](#license)
+- [Disclaimer](#disclaimer)
+- [marburg-thesis](#marburg-thesis)
+  - [Table of contents](#table-of-contents)
+  - [Configuration](#configuration)
+    - [thesis.tex](#thesistex)
+        - [Two-sided vs. one-sided](#two-sided-vs-one-sided)
+        - [Bibliographies](#bibliographies)
+        - [Language](#language)
+        - [Table of content, figures, tables, listings, and acronyms](#table-of-content-figures-tables-listings-and-acronyms)
+    - [hdathesis-config.tex](#hdathesis-configtex)
+        - [Personal data](#personal-data)
+      - [Umlauts](#umlauts)
+    - [classicthesis-config.tex](#classicthesis-configtex)
+  - [Usage](#usage)
+    - [Writing abstracts](#writing-abstracts)
+    - [Adding content](#adding-content)
+    - [Changing the Citation Style](#changing-the-citation-style)
+    - [Compiling the LaTeX source code](#compiling-the-latex-source-code)
+    - [Using Docker](#using-docker)
+    - [Using Github Actions](#using-github-actions)
+  - [Known issues](#known-issues)
+  - [License](#license)
+  - [Acknowledgements](#acknowledgements)
 
 ## Configuration
 
@@ -48,11 +53,11 @@ The default output of the LaTeX thesis template is a single-sided style that als
 
 ```
 \documentclass[ openright,titlepage,numbers=noenddot,headinclude,twoside,%
-footinclude=true,cleardoublepage=empty,abstractoff,%
-BCOR=5mm,paper=a4,fontsize=11pt,%
-ngerman,american,%
-]{scrreprt}
-```
+                footinclude=true,cleardoublepage=empty,abstractoff,%
+                BCOR=5mm,paper=a4,fontsize=11pt,%
+                ngerman,american,%lockflag%
+                ]{scrreprt}
+``` 
 
 You may also adapt the paper size (_paper=a4_) and the font size (_fontsize=11_) if necessary.
 
@@ -171,7 +176,7 @@ You may also want to have a look at the _part(...)_ section at line 93 and 103. 
 
 By default, this template uses the IEEE Numeric style for citations. The IEEE citation style includes in-text citations, numbered in square brackets, which refer to the full citation listed in the reference list at the end of the paper. The reference list is organized numerically, not alphabetically. For examples, see the [IEEE Editorial Style Manual](http://ieeeauthorcenter.ieee.org/wp-content/uploads/IEEE_Style_Manual.pdf).
 
-However, if you prefer to uses the IEEE Alphabetic style for citations, as suggested in the [Richtlinien zur Anfertigung der Bachelorarbeit](https://www.fbi.h-da.de/fileadmin/Inhalt/dokumente/Bachelor/BachelorProjekt/Richtlinien_Bachelorarbeit_070619.pdf) you can do so. To this end, you have to change lines 90 and 91 of _classicthesis-config.tex_:
+However, if you prefer to uses the IEEE Alphabetic style for citations you can do so. To this end, you have to change lines 90 and 91 of _classicthesis-config.tex_:
 
 ```
 %style=numeric-comp,%
@@ -207,7 +212,7 @@ $ make publish
 
 ### Using Docker
 
-The h_da thesis template ships with two Dockerfiles that create [Docker](https://www.docker.com) container used to compile the LaTeX code. One container - build by the [Dockerfile.travis]( https://github.com/mbredel/floriansiepe/blob/master/Dockerfile.travis) Docker file - is used by the Travis-CI infrastructure to compile the thesis template and check its integrity at every commit. The other one - created by the [Dockerfile.local](https://github.com/floriansiepe/thesis-template/blob/master/Dockerfile.local) Docker file - might be used to build the Docker container that allows to compile the LaTeX code on your local machine without the need to install any LaTeX files.
+The h_da thesis template ships with two Dockerfiles that create [Docker](https://www.docker.com) container used to compile the LaTeX code. One container - build by the [Dockerfile.ci]( https://github.com/floriansiepe/marburg-thesis/blob/master/Dockerfile.ci) Docker file - is used by the CI to compile the thesis template and check its integrity at every commit. The other one - created by the [Dockerfile.local](https://github.com/floriansiepe/marburg-thesis/blob/master/Dockerfile.local) Docker file - might be used to build the Docker container that allows to compile the LaTeX code on your local machine without the need to install any LaTeX files.
 
 On order to build the Docker image you have to type the following command:
 
@@ -215,7 +220,7 @@ On order to build the Docker image you have to type the following command:
 $ docker build --tag marburg-thesis --file Dockerfile.local .
 ```
 
-Creating the image requires a working (and hopefully fast) Internet connection. It may take several minutes to download the required base-images as well as all needed dependencies. You only have to create the image once. When the image is build, you can run the Docker container by executing the following commad
+Creating the image requires a working (and hopefully fast) Internet connection. It may take several minutes to download the required base-images as well as all needed dependencies. You only have to create the image once. Once the image is created, you can run the Docker container by running the following command
 
 ```
 $ docker run --volume $(pwd):/marburg-thesis/ marburg-thesis && docker rm $(docker ps -lq)
