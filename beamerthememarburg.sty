@@ -1,0 +1,54 @@
+\definecolor{marburgBlue}{HTML}{23396e}
+\definecolor{marburgBlueLight}{HTML}{297acc}
+\definecolor{marburgGrey}{HTML}{333}
+\usecolortheme[named=marburgBlue]{structure}
+
+\setbeamercolor{fuss}{fg=white, bg=marburgBlue}
+\setbeamerfont{title}{shape=\bfseries}
+
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamertemplate{itemize items}[square]
+\setbeamertemplate{navigation symbols}{}
+
+\setbeamercolor{block title}{fg=white, bg=marburgBlue}
+\setbeamercolor{block body}{bg=marburgBlue!20}
+
+\setbeamercolor{block title alerted}{fg=white, bg=red}
+\setbeamercolor{block body alerted}{bg=red!20}
+
+\setbeamercolor{block title example}{fg=white, bg=marburgBlueLight}
+\setbeamercolor{block body example}{bg=marburgBlueLight!20}
+
+\setbeamertemplate{footline}{
+	\color{marburgBlueLight}% to color the progressbar
+	\hspace*{-\beamer@leftmargin}%
+	\rule{\beamer@leftmargin}{0pt}%
+	\rlap{\rule{\dimexpr
+			\beamer@startpageofframe\dimexpr
+			\beamer@rightmargin+\textwidth\relax/\beamer@endpageofdocument}{3pt}}
+	% next 'empty' line is mandatory!
+	
+	\vspace{0\baselineskip}
+	{}
+	\begin{beamercolorbox}{fuss}{
+			\vskip1pt%
+			\makebox[0pt][l]{\,\hspace*{4mm}{\insertsection}}%
+			\hspace*{\fill}\insertshorttitle\hspace*{\fill}%
+			\llap{Seite \insertpagenumber}\hspace*{4mm}}
+		\vspace*{1.5mm}
+	\end{beamercolorbox}
+}
+
+\setbeamertemplate{frametitle}{
+	\vspace{-10mm}
+	\insertframetitle\\
+	\begin{footnotesize}
+		\insertframesubtitle
+	\end{footnotesize}
+}
+
+
+\setbeamertemplate{headline}{
+	\vspace*{4mm}
+	\hfill\includegraphics[width=2.5cm]{gfx/logo_blue}\hspace*{4mm}
+}

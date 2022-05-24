@@ -2,20 +2,19 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
-\usetheme{default}
-\definecolor{marburgBlue}{HTML}{23396e}
-\usecolortheme[named=marburgBlue]{structure}
+\usepackage{graphicx}
+\usepackage{ngerman}
+\usetheme{marburg}
+
 
 \begin{document}
     \author{Author}
     \title{Title}
     \subtitle{Subtitle}
-    %\logo{\includegraphics[width=.2\paperwidth]{gfx/logo_blue}}
     \institute{Philipps Universität Marburg}
     \date{\today}
     \subject{Subject}
-    %\setbeamercovered{transparent}
-    %\setbeamertemplate{navigation symbols}{}
+
     \begin{frame}[plain]
         \begin{center}
         \hspace{1.5em}\includegraphics[width=.5\paperwidth]{gfx/logo_blue}
@@ -31,6 +30,10 @@
         Last change: \textit{1. June 2012}
 
     \end{frame}
+
+	\begin{frame}{ToC}
+		\tableofcontents
+	\end{frame}
 
 
 
