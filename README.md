@@ -149,28 +149,28 @@ You have to modify both these files and place your abstract text in _AbstractDE.
 
 ### Adding content
 
-By default, the thesis template, i.e. the _thesis.tex_-file, contains (includes) some default content files for chapters and appendix from the _./chapters/examples/_-directory (starting a line 94). You have to remove those includes and include your own files. Please note that it is best practice to put all your content in separate files.
+By default, the thesis template, i.e. the _thesis.tex_-file, references the _./chapters/thesis/main.tex_-file and _./chapters/thesis/appendix.tex_-file, which contains (includes) some default content files for chapters and appendix from the _./chapters/thesis/_-directory. You have to remove those includes and include your own files. Please note that it is best practice to put all your content in separate files.
 
 ```
-\cleardoublepage
-\part{Thesis}\label{pt:thesis}
-%\include{chapters/examples/chapter01}
-%\include{chapters/examples/chapter02}
-%\include{chapters/examples/chapter03}
-... PUT YOUR INCLUDES FOR CHAPTERS HERE ...
 %*************************************************************************
-% Backmatter
+% Add your content here
 %*************************************************************************
-\appendix
-%\renewcommand{\thechapter}{\alph{chapter}}
-\cleardoublepage
-\part{Appendix}
-%\include{chapters/examples/appendix01}
-%\include{chapters/examples/appendix02}
-... PUT YOUR INCLUDES FOR APPENDIX HERE ...
+\include{chapters/thesis/chapter01}
+\include{chapters/thesis/chapter02}
+\include{chapters/thesis/chapter03}⏎
 ```
 
-You may also want to have a look at the _part(...)_ section at line 93 and 103. You may want to change the titles of the _part(...)_-sections. Alternatively, you remove the _part(...)_ section and the corresponding _cleardoublepage_ the line before.
+and
+
+```
+%*************************************************************************
+% Add your appendix here
+%*************************************************************************
+\include{chapters/thesis/appendix01}
+\include{chapters/thesis/appendix02}⏎
+```
+
+You may also want to have a look at the _part(...)_ section. You may want to change the titles of the _part(...)_-sections. Alternatively, you remove the _part(...)_ section and the corresponding _cleardoublepage_ the line before.
 
 ### Changing the Citation Style
 
