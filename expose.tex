@@ -1,0 +1,41 @@
+\documentclass[12pt,parskip=half]{scrartcl}
+\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+\usepackage[numbers,sort&compress,square]{natbib}
+\bibliographystyle{abbrvnat}
+
+%*************************************************************************
+% Note: Make all your adjustments in here
+%*************************************************************************
+\input{hdathesis-config}
+
+\title{\myTitle}
+\subtitle{Expose of Master Thesis} % Change this to your thesis type
+\author{\myName}
+\date{07.11.2022}
+
+\begin{document}
+
+\makeatletter
+    \begin{titlepage}
+        \begin{center}
+            \includegraphics[width=0.7\linewidth]{gfx/logo_blue.pdf}\\[12ex]
+            {\huge \bfseries  \@title }\\[6ex] 
+            {\large \textit{\@subtitle}}\\[14ex]
+            {\LARGE  \@author}\\[14ex] 
+            {\large Supervisors:}\\[2ex]
+            {\large \myProf}\\[1ex]
+            {\large \myOtherProf}\\[14ex]
+            {\large \@date}
+        \end{center}
+    \end{titlepage}
+\makeatother
+
+\input{chapters/expose/main}
+
+\bibliography{bibliography}
+
+\end{document}
+

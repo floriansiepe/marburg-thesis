@@ -22,6 +22,11 @@ jobs:
         with:
           root_file: presentation.tex
           args:
+      - name: Compile expose.tex
+        uses: dante-ev/latex-action@master
+        with:
+          root_file: expose.tex
+          args:
       - name: Gather build artifacts
         run: mkdir build && cp -r *.pdf docs/* build/
       - name: Upload artifacts

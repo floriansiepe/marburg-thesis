@@ -1,0 +1,89 @@
+\section{Approach}
+\label{sec:approach}
+
+Explain the approach of your thesis: What do you want to try? Which technologies do you want to use? What is the reasoning of your approach and why could the it work? ... The approach is expected to justify 6 months of MA research. It should not be too ambitious and not too narrow. Be realistic here. If you did more in the end, great! If you did less, it needs to be explained in the final MA why certain steps have not been taken.
+
+The MA ideas presented here will not be graded, but they are the foundation of the grading of the final MA.
+
+An illustration (in a figure, such as \autoref{fig:example}) can help to convey your idea. Structure your ideas: What are possibly different research directions, what are your tasks, what are directions that you explicitly do \emph{not} want to pursue in your thesis?
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.6\linewidth]{gfx/logo_blue.pdf}
+	\caption{An illustration of an example architecture, measurement or concept}
+	\label{fig:example}
+\end{figure}
+
+What are the steps you want to take in your thesis? Maybe itemize them:
+
+\begin{itemize}
+	\item item 1
+	\item item 2
+	\item item 3
+\end{itemize}
+
+How does the approach address the research questions from above? How is it supposed to be applied?
+
+Algorithm~\ref{alg:sampling} shows an example for pseudo code. Most likely you will need this for your thesis but not for your expose. We will shift once the thesis template is ready.
+
+\begin{algorithm}[t]
+	\small
+	\caption{Record Pair Sampling}
+	\label{alg:sampling}
+	\KwData{\textit{plis}, \textit{pliRecords}, \textit{comparisonSuggestions}}
+	\KwResult{\textit{nonFds}}
+	\BlankLine
+	
+	\eIf{efficiencyQueue $=$ $\emptyset$}{ \label{alg:sampling:firstcall}
+		\For{pli $\in$ plis}{ \label{alg:sampling:sortiterate}
+			\For{cluster $\in$ pli}{
+				\textit{cluster} $\gets$ \textit{\texttt{sort}}(\textit{cluster}, \texttt{ATTR\_LEFT\_RIGHT})\; \label{alg:sampling:sort}
+			}
+		}
+		\textit{nonFds} $\gets$ $\emptyset$\;
+		\textit{efficiencyThreshold} $\gets$ 0.01\;
+		\textit{efficiencyQueue} $\gets$ \textit{\texttt{new}} PriorityQueue\;
+		\For{attr $\in$ $\mathrm{[}$0, numAttributes$\mathrm{[}$}{
+			\textit{efficiency} $\gets$ \textit{\texttt{new}} Efficiency\;
+			\textit{efficiency.attribute} $\gets$ \textit{attr}\;
+			\textit{efficiency.window} $\gets$ 2\;
+			\textit{efficiency.comps} $\gets$ 0\;
+			\textit{efficiency.results} $\gets$ 0\;
+			\textit{\texttt{runWindow}}(\textit{efficiency}, \textit{plis}[\textit{attr}], \textit{nonFds})\; \label{alg:sampling:runwindowone}
+			\textit{efficiencyQueue}.\textit{\texttt{append}}(\textit{efficiency})\;
+		}
+	} {
+		\textit{efficiencyThreshold} $\gets$ \textit{efficiencyThreshold} / 2\; \label{alg:sampling:thresholdincrease}
+		\For{sug $\in$ comparisonSuggestions}{ \label{alg:sampling:suggestionsiterate}
+			\textit{nonFds} $\gets$ \textit{nonFds} $\cup$ \textit{\texttt{match}}(\textit{sug}[0], \textit{sug}[1])\; \label{alg:sampling:suggestionsexecute}
+		}
+	}
+	
+	\While{true}{ \label{alg:sampling:progressivestart}
+		\textit{bestEff} $\gets$ \textit{efficiencyQueue}.\textit{\texttt{peek}}()\; \label{alg:sampling:best}
+		\If{bestEff.\textit{\texttt{eval}}() $<$ \textit{efficiencyThreshold}}{ \label{alg:sampling:terminatetest}
+			\textbf{break}\;
+		}
+		\textit{bestEff.window} $\gets$ \textit{bestEff.window} + 1\;
+		\textit{\texttt{runWindow}}(\textit{bestEff}, \textit{plis}[\textit{bestEff.attribute}], \textit{nonFds})\; \label{alg:sampling:runnext}
+	}
+	\textbf{return} \textit{\texttt{newFDsIn}}(\textit{nonFds})\;
+	\BlankLine
+	
+	\nonl\textbf{function} \textit{\texttt{runWindow}}(\textit{efficiency}, \textit{pli}, \textit{nonFds}) \\
+	\textit{prevNumNonFds} $\gets$ $\left|\textit{nonFds}\right|$\;\label{alg:sampling:runwindowstart}
+	
+	\For{cluster $\in$ pli}{
+		\For{i $\in$ $\mathrm{[}$0, $\left|cluster\right|$ $-$ \textit{efficiency.window} $\mathrm{[}$}{ \label{alg:sampling:takepivot}
+			\textit{pivot} $\gets$ \textit{pliRecords}[\textit{cluster}[i]]\;
+			\textit{partner} $\gets$ \textit{pliRecords}[\textit{cluster}[$i + window - 1$]]\;
+			
+			\textit{nonFds} $\gets$ \textit{nonFds} $\cup$ \textit{\texttt{match}}(\textit{pivot}, \textit{partner})\; \label{alg:sampling:match}
+			\textit{efficiency}.\textit{comps} $\gets$ \textit{efficiency}.\textit{comps} + 1\;
+		}
+	}
+	\textit{newResults} $\gets$ $\left|\textit{nonFds}\right|$ $-$ \textit{prevNumNonFds}\;
+	\textit{efficiency}.\textit{results} $\gets$ \textit{efficiency}.\textit{results} + \textit{newResults}\; \label{alg:sampling:runwindowend}
+\end{algorithm}
+
+\clearpage
