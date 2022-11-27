@@ -3,8 +3,9 @@
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage[hidelinks]{hyperref}
-\usepackage[numbers,sort&compress,square]{natbib}
-\bibliographystyle{abbrvnat}
+\usepackage[style=numeric]{biblatex}
+\addbibresource{bibliography.bib}
+
 
 %*************************************************************************
 % Note: Make all your adjustments in here
@@ -35,7 +36,14 @@
 
 \input{chapters/expose/main}
 
-\bibliography{bibliography}
+% allow Linebreaks in urls anywhere
+\setcounter{biburlnumpenalty}{100}
+\setcounter{biburlucpenalty}{100}
+\setcounter{biburllcpenalty}{100}
+% enable to long words to break anywhere by increasing the allowed whitespace between words.
+\sloppy
+
+\printbibliography[heading=bibintoc]
 
 \end{document}
 
