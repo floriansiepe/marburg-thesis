@@ -27,9 +27,11 @@ The documentation below is taken from the [Michael Bredel's thesis template repo
         - [Personal data](#personal-data)
       - [Umlauts](#umlauts)
     - [classicthesis-config.tex](#classicthesis-configtex)
+  - [Expose](#expose)
   - [Usage](#usage)
     - [Writing abstracts](#writing-abstracts)
     - [Adding content](#adding-content)
+    - [Adding graphics](#adding-graphics)
     - [Changing the Citation Style](#changing-the-citation-style)
     - [Compiling the LaTeX source code](#compiling-the-latex-source-code)
     - [Using Docker](#using-docker)
@@ -137,6 +139,10 @@ To write the Title "TOR - Schießen mit Füßen" you have to write "TOR - Schie{
 
 The _classicthesis-config.tex_-file allows you to configure stuff that comes with the classic-thesis style, like LaTeX packages used by classic thesis. This is quite advanced stuff already. Thus, you should touch this file only if you know what you are doing. Usually, you can leave the file as it is.
 
+## Expose
+
+This template also comes with a expose. This is usually the first document you work on and where you draft your research and proposed approaches. The _expose.tex_-file should set you up.
+
 ## Usage
 
 In the following, we explain how to actually use, i.e. add content and compile, the thesis template to create a nice and shiny PDF file that will please your supervisor.
@@ -149,28 +155,34 @@ You have to modify both these files and place your abstract text in _AbstractDE.
 
 ### Adding content
 
-By default, the thesis template, i.e. the _thesis.tex_-file, contains (includes) some default content files for chapters and appendix from the _./chapters/examples/_-directory (starting a line 94). You have to remove those includes and include your own files. Please note that it is best practice to put all your content in separate files.
+By default, the thesis template, i.e. the _thesis.tex_-file, references the _./chapters/thesis/main.tex_-file and _./chapters/thesis/appendix.tex_-file, which contains (includes) some default content files for chapters and appendix from the _./chapters/thesis/_-directory. You have to remove those includes and include your own files. Please note that it is best practice to put all your content in separate files.
 
 ```
-\cleardoublepage
-\part{Thesis}\label{pt:thesis}
-%\include{chapters/examples/chapter01}
-%\include{chapters/examples/chapter02}
-%\include{chapters/examples/chapter03}
-... PUT YOUR INCLUDES FOR CHAPTERS HERE ...
 %*************************************************************************
-% Backmatter
+% Add your content here
 %*************************************************************************
-\appendix
-%\renewcommand{\thechapter}{\alph{chapter}}
-\cleardoublepage
-\part{Appendix}
-%\include{chapters/examples/appendix01}
-%\include{chapters/examples/appendix02}
-... PUT YOUR INCLUDES FOR APPENDIX HERE ...
+\include{chapters/thesis/chapter01}
+\include{chapters/thesis/chapter02}
+\include{chapters/thesis/chapter03}⏎
 ```
 
-You may also want to have a look at the _part(...)_ section at line 93 and 103. You may want to change the titles of the _part(...)_-sections. Alternatively, you remove the _part(...)_ section and the corresponding _cleardoublepage_ the line before.
+and
+
+```
+%*************************************************************************
+% Add your appendix here
+%*************************************************************************
+\include{chapters/thesis/appendix01}
+\include{chapters/thesis/appendix02}⏎
+```
+
+For the expose the folder name is `expose` instead of `thesis`.
+
+You may also want to have a look at the _part(...)_ section. You may want to change the titles of the _part(...)_-sections. Alternatively, you remove the _part(...)_ section and the corresponding _cleardoublepage_ the line before.
+
+### Adding graphics
+
+Simlar to [Adding content](#adding-content), the graphics are placed in the folder `thesis` or `expose`. But instead of `chapters` you should look in the `gfx` folder.
 
 ### Changing the Citation Style
 

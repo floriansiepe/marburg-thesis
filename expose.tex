@@ -1,0 +1,50 @@
+\documentclass[12pt,parskip=half]{scrartcl}
+\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+\usepackage[style=numeric,backend=biber]{biblatex}
+\usepackage{csquotes}
+\addbibresource{bibliography.bib}
+
+
+%*************************************************************************
+% Note: Make all your adjustments in here
+%*************************************************************************
+\input{hdathesis-config}
+
+\title{\myTitle}
+\subtitle{Expose of Master Thesis} % Change this to your thesis type
+\author{\myName}
+\date{07.11.2022}
+
+\begin{document}
+
+\makeatletter
+    \begin{titlepage}
+        \begin{center}
+            \includegraphics[width=0.7\linewidth]{gfx/logo_blue.pdf}\\[12ex]
+            {\huge \bfseries  \@title }\\[6ex]
+            {\large \textit{\@subtitle}}\\[14ex]
+            {\LARGE  \@author}\\[14ex]
+            {\large Supervisors:}\\[2ex]
+            {\large \myProf}\\[1ex]
+            {\large \myOtherProf}\\[14ex]
+            {\large \@date}
+        \end{center}
+    \end{titlepage}
+\makeatother
+
+\input{chapters/expose/main}
+
+% allow Linebreaks in urls anywhere
+\setcounter{biburlnumpenalty}{100}
+\setcounter{biburlucpenalty}{100}
+\setcounter{biburllcpenalty}{100}
+% enable to long words to break anywhere by increasing the allowed whitespace between words.
+\sloppy
+
+\printbibliography[heading=bibintoc]
+
+\end{document}
+

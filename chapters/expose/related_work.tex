@@ -1,0 +1,27 @@
+\section{Related Work}
+\label{sec:relatedwork}
+
+List all related works for your thesis. These are works that a) try to solve the same problem (in a different and hopefully worse way), b) are being used by the proposed approach (e.g. as some inner component), or c) are completely orthogonal (but a reviewer might think that they are competitors so that we need to emphasize their irrelevance for this work). 
+
+Every related work needs to be cited and explained to a degree that is relevant for this work; usually just to roughly understand the idea; well enough, though, to distinguish this work from the other work.
+
+For every work, name and cite the work, describe it briefly and then either a) clearly distinct the approach from your approach (what do you do different?), b) specify where and how the work is used or built upon, or c) explain why the work is different, i.e., follows an orthogonal, incomparable objective. LaTeX is great for citing stuff: an algorithm~\cite{papenbrock2016a}, cool books~\cite{ullman1990principles, garcia_molina2008database}, or a a thesis~\cite{le2014on}. Make sure that the references are well formatted! The references.bib has examples for many different types of sources. Delete the current ones and add your own ones. Make sure they are consistent! The makro list in the references.bib will help you format the conference and journal titles properly!
+
+If the amount of related work is large, it often makes sense to introduce domain-specific subsections, such as these (make sure you always have at least two subsection when you open one):
+
+\subsection{Bach Processing Algorithms}
+
+Competitors and how they are different; which of them are used in the evaluation. Provide a reason for each competitor that you have chosen not to evaluate against (e.g. you already evaluate against a competitor that was shown to be faster or it is basically not possible to retrieve and re-implement a certain competitor due to bad descriptions, missing artifacts and/or data). 
+
+\subsection{Distance Metrics}
+
+Stuff that was used in own approach. Describe the approaches/techniques and argue why they are good/necessary choices.
+
+\subsection{Approximate and Partial Algorithms}
+
+Approaches that are somehow related but basically irrelevant. Did these approaches still inspire some aspects of the proposed solution?
+
+\section{Preliminaries and Definitions}
+\label{sec:definitions}
+
+Some works, especially the more theoretic works, require some formal introduction of conventions, terminology, definitions etc. that are needed throughout the paper. They are often given in the introductory Motivation, but if their number justifies its own section, put them here.

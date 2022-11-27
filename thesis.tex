@@ -60,7 +60,7 @@
 \begin{document}
 \frenchspacing
 \raggedbottom
-\selectlanguage{ngerman} % ngerman, american
+\selectlanguage{american} % ngerman, american
 %\renewcommand*{\bibname}{new name}
 %\setbibpreamble{}
 \pagenumbering{roman}
@@ -74,8 +74,7 @@
 %\cleardoublepage\include{frontbackmatter/Foreword}
 \cleardoublepage\include{frontbackmatter/Declaration}
 \condLOCK{\cleardoublepage\include{frontbackmatter/BlockingNotice}}
-\cleardoublepage\include{frontbackmatter/AbstractEN}
-\cleardoublepage\include{frontbackmatter/AbstractDE}
+\cleardoublepage\include{frontbackmatter/Abstract}
 %\cleardoublepage\include{frontbackmatter/Publications}
 %\cleardoublepage\include{frontbackmatter/Acknowledgments}
 \cleardoublepage\include{frontbackmatter/Contents}
@@ -92,9 +91,8 @@
 % Alwas use \cleardoublepage before \part{...}.
 \cleardoublepage
 \part{Thesis}\label{pt:thesis}
-\include{chapters/examples/chapter01}
-\include{chapters/examples/chapter02}
-\include{chapters/examples/chapter03}
+\input{chapters/thesis/main}
+
 %*************************************************************************
 % Recommendations
 %*************************************************************************
@@ -107,8 +105,7 @@
 %\renewcommand{\thechapter}{\alph{chapter}}
 \cleardoublepage
 \part{Appendix}
-\include{chapters/examples/appendix01}
-\include{chapters/examples/appendix02}
+\input{chapters/thesis/appendix}
 %*************************************************************************
 % Other Stuff in the Back
 %*************************************************************************
