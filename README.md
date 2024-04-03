@@ -249,7 +249,7 @@ This thesis ships with multiple [Github Action workflows](https://github.com/flo
 - [latexmk](https://github.com/floriansiepe/marburg-thesis/blob/master/.github/workflows/build-with-latexmk.yml): Builds the thesis with latexmk on any push/pull request on any branch except master
 - [Release with latexmk](https://github.com/floriansiepe/marburg-thesis/blob/master/.github/workflows/build-and-publish-release-with-latexmk.yml): Builds the thesis with latexmk on any `v*` tagged commit on the master branch and publishes the pdf on the Github release page
 
-To configure `latexmk` see [.latexmkrc]((https://github.com/floriansiepe/marburg-thesis/blob/master/latexmkrc).
+To configure `latexmk` see [.latexmkrc](https://github.com/floriansiepe/marburg-thesis/blob/master/latexmkrc).
 ## Known issues
 
 * The LaTeX template is tested using [TeXLive](https://www.tug.org/texlive/) which is available for Linux and Windows.
@@ -259,7 +259,7 @@ To configure `latexmk` see [.latexmkrc]((https://github.com/floriansiepe/marburg
 
 ## License
 
-The h_da computer science department LaTeX thesis template is licenced under GPL v3.0
+The marburg LaTeX thesis template is just like its base template (h_da computer science department) is licenced under GPL v3.0
 
 ## Acknowledgements
 
