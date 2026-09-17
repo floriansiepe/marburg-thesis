@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set up Git repository
-        uses: actions/checkout@v1
+        uses: actions/checkout@v7
       - name: Compile thesis.tex
         uses: dante-ev/latex-action@master
         with:
